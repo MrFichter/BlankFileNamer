@@ -1,0 +1,1 @@
+The purpose of this program is to create blank files, name them for each student, and then place them in each student's network folder.

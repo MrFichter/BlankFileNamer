@@ -48,7 +48,7 @@ be all one word, and should use only
 letters and numbers. An example would be
 "FractionsProject."
 '''
-fileBaseName = str(raw_input('base name'))
+fileBaseName = str(raw_input('base name>'))
 
 
 ##Ask for fileType
@@ -59,7 +59,7 @@ doc
 pdf
 mp3
 '''
-fileType = str(raw_input('file type'))
+fileType = str(raw_input('file type>'))
 
 
 ##Ask for text file with list of usernames.
@@ -78,7 +78,7 @@ print'''
 Now, please enter the name of the text
 file you created. Example: usernames.txt
 '''
-textFileName = (str(raw_input('text file name'))
+textFileName = str(raw_input('text file name>'))
 
 
 ##Ask for location of this text file.
@@ -90,11 +90,11 @@ include a forward slash as the final
 character you type. Example:
 C:/Users/Jonathan/MathProjects/
 '''
-textFilePath = (str(raw_input('text file location'))
+textFilePath = str(raw_input('text file location>'))
 
 
 ##Concatenate textFileName and textFilePath to get the information the program needs to open the text file.
-textFile = (textFileName + textFilePath)                
+textFile = (textFilePath + textFileName)                
 
 
 ##Ask about destination file path.
@@ -106,13 +106,14 @@ new files you are creating). The default
 destination is the following:
 '''
 print (os.getcwd())
-print '''You can keep this
+print '''
+You can keep this
 destination, or you can specify a new one.
 (N.B. If you want to place copies into
 each student's network folder, you'll
 probably want to specify a new destination.)
 '''
-keepDestination = askYesNo ('Would you like keep the current destination? y / n   ')
+keepDestination = askYesNo ('Would you like keep the current destination? y / n>')
 if keepDestination == 'n': ##i.e. If the user wants to specify a custom destination
     print '''Please specify your
     desired destination. Make sure to use
@@ -120,8 +121,8 @@ if keepDestination == 'n': ##i.e. If the user wants to specify a custom destinat
     include a forward slash as the final
     character you type. Example:
     C:/Users/Jonathan/Desktop/
-    '''
-    destinationDir = str(raw_input('destination'))
+>'''
+    destinationDir = str(raw_input('destination>'))
     os.chdir(destinationDir)
 
 ##Ask if program should also distribute copies of the file into folders named after the username.

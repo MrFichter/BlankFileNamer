@@ -92,6 +92,8 @@ C:/Users/Jonathan/MathProjects/
 '''
 textFilePath = str(raw_input('text file location>'))
 
+###Consider teaching the program to automatically convert slashes.
+
 
 ##Concatenate textFileName and textFilePath to get the information the program needs to open the text file.
 textFile = (textFilePath + textFileName)                
@@ -121,13 +123,19 @@ if keepDestination == 'n': ##i.e. If the user wants to specify a custom destinat
     include a forward slash as the final
     character you type. Example:
     C:/Users/Jonathan/Desktop/
->'''
-    destinationDir = str(raw_input('destination>'))
-    os.chdir(destinationDir)
-
+    (N.B. If you want to place copies into
+    each student's network folder, make sure
+    the destination you specify is the place
+    where the students' network folders are
+    stored. For example, if you want copies
+    to go to S:/Students/2021/FichterJ/
+    and S:/Students/2021/SmithT/ , you should
+    make S:/Students/2021/ your destination.
+    '''
+    destinationInput = str(raw_input('destination>'))
+    
 ##Ask if program should also distribute copies of the file into folders named after the username.
 folderDistribute = askYesNo ('Would you like to place copies into each student\'s network folder?')
-### if folderDistribute == 'y' ###Work on this later.                
 
 
 ##CREATING THE FILES AND, OPTIONALLY, DISTRIBUTING THEM TO FOLDERS
@@ -136,9 +144,20 @@ folderDistribute = askYesNo ('Would you like to place copies into each student\'
 
 for line in open(textFile):
     ##Create full file name
-    fileNameFull = (fileBaseName + line.strip() + '.' + fileType)##Strip method gets rid of \n at the end of each line.
+    fileNameFull = fileBaseName + line.strip() + '.' + fileType##Strip method gets rid of \n at the end of each line.
+    ### Modify the path (if the user wants the program to distribute to student folders).
+    if folderDistribute == 'y':
+        studentBranch = line.strip() + '/'
+    elif folderDistribute =='n':
+        studentBranch = ''
+    else:
+        print 'Error. The variable folderDistribute should equal y or n.'
+    ##Change path to the next branch (if necessary).
+    os.chdir (destinationInput + studentBranch)
+    ## Create a file
     open (fileNameFull , 'w')
 
+    
     ##Opening a file in write mode automatically creates the file if it does not yet exist.
     ##Python will close the file when the script ends.
     ##The full file name is the file's base name (e.g. "Fractions project") plus the user name followed by the file type. E.g. "FractionsProjectFichterJ.py"
@@ -148,6 +167,9 @@ for line in open(textFile):
 
 
 ##FOR TESTING PURPOSES
+
+##os.chdir ('C:/Users\Jonathan_2/Desktop/') ##This works, even though the slashes in the middle are weird.
+##fileNameFull = 'FractionsProjectFichterJ.sb'
 
 
 ##To check the path:

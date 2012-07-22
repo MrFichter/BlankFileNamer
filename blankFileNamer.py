@@ -2,7 +2,6 @@
 ##name them for each student,
 ##and then (optionally) place them in each student's network folder.
 
-### = Something temporary that I'm working on.
 
 
 
@@ -24,7 +23,7 @@ def askYesNo(question):
 ##print overview
 
 print '''
-Welcome to this file-creating program!
+Welcome to this file-creating program.
 The files you create will start with
 a base name (e.g. FractionsProject)
 and will be followed by a student's
@@ -163,38 +162,19 @@ for line in open(textFile):
     ## Create a file
     open (fileNameFull , 'w')
 
+    ##Opening a file in write mode automatically creates the file if it does not yet exist.
+    ##Python will close the file when the script ends.
+    
+
+## END
 print '''
 
 Thank you for using this program.
 '''
+raw_input ('Press Enter key to quit.')
+   
     
-    ##Opening a file in write mode automatically creates the file if it does not yet exist.
-    ##Python will close the file when the script ends.
-    ##The full file name is the file's base name (e.g. "Fractions project") plus the user name followed by the file type. E.g. "FractionsProjectFichterJ.py"
 
 
 
 
-
-##FOR TESTING PURPOSES
-
-##FractionsProject
-
-##sb
-
-##sampleTextFileWithThreeNames.txt
-
-##C:/Users/Jonathan_2/Documents/GitHub/BlankFileNamer/
-
-##C:/Users\Jonathan_2/Desktop/
-    
-##os.chdir ('C:/Users\Jonathan_2/Desktop/') ##This works, even though the slashes in the middle are weird.
-##fileNameFull = 'FractionsProjectFichterJ.sb'
-
-
-##To check the path:
-##import os
-##os.getcwd()
-
-##Also try os.chdir()
-    

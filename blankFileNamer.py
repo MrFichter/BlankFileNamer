@@ -109,33 +109,39 @@ destination is the following:
 '''
 print (os.getcwd())
 print '''
-You can keep this
-destination, or you can specify a new one.
-(N.B. If you want to place copies into
-each student's network folder, you'll
-probably want to specify a new destination.)
+You can keep this destination, or you
+can specify a new one.(N.B. If you want
+to place copies into each student's
+network folder, you'll probably want to
+specify a new destination.)
 '''
 keepDestination = askYesNo ('Would you like keep the current destination? y / n>')
 if keepDestination == 'n': ##i.e. If the user wants to specify a custom destination
-    print '''Please specify your
-    desired destination. Make sure to use
-    forward slashes (not back slashes) and to
-    include a forward slash as the final
-    character you type. Example:
-    C:/Users/Jonathan/Desktop/
-    (N.B. If you want to place copies into
-    each student's network folder, make sure
-    the destination you specify is the place
-    where the students' network folders are
-    stored. For example, if you want copies
-    to go to S:/Students/2021/FichterJ/
-    and S:/Students/2021/SmithT/ , you should
-    make S:/Students/2021/ your destination.
+    print '''
+Please specify your desired destination.
+Make sure to use forward slashes (not
+back slashes) and toinclude a forward
+slash as the final character you type.
+Example:
+
+C:/Users/Jonathan/Desktop/
+
+(N.B. If you want to place copies into
+each student's network folder, make sure
+the destination you specify is the place
+where the students' network folders are
+stored. For example, if you want copies
+to go to S:/Students/2021/FichterJ/ and
+S:/Students/2021/SmithT/ , you should
+make S:/Students/2021/ your destination.)
     '''
     destinationInput = str(raw_input('destination>'))
+
+##Leave a blank line
+print ''
     
 ##Ask if program should also distribute copies of the file into folders named after the username.
-folderDistribute = askYesNo ('Would you like to place copies into each student\'s network folder?')
+folderDistribute = askYesNo ('Would you like to place copies into each student\'s network folder? y / n>')
 
 
 ##CREATING THE FILES AND, OPTIONALLY, DISTRIBUTING THEM TO FOLDERS
@@ -157,6 +163,10 @@ for line in open(textFile):
     ## Create a file
     open (fileNameFull , 'w')
 
+print '''
+
+Thank you for using this program.
+'''
     
     ##Opening a file in write mode automatically creates the file if it does not yet exist.
     ##Python will close the file when the script ends.
@@ -168,6 +178,16 @@ for line in open(textFile):
 
 ##FOR TESTING PURPOSES
 
+##FractionsProject
+
+##sb
+
+##sampleTextFileWithThreeNames.txt
+
+##C:/Users/Jonathan_2/Documents/GitHub/BlankFileNamer/
+
+##C:/Users\Jonathan_2/Desktop/
+    
 ##os.chdir ('C:/Users\Jonathan_2/Desktop/') ##This works, even though the slashes in the middle are weird.
 ##fileNameFull = 'FractionsProjectFichterJ.sb'
 
